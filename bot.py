@@ -24,7 +24,7 @@ def send_image_and_edit_caption_to_channels(channel_ids, text):
         send_image_with_caption(channel_id, image_path, text)
         
 def send_image_and_edit_caption_to_channelss(channel_idc, text):
-    image_patch = ''
+    image_patch = 'IMG_20230525_043509_774.jpg'
     
     for channel_id in channel_idc:
         send_image_with_caption(channel_id, image_patch, text)
