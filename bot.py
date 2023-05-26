@@ -5,7 +5,7 @@ api_id = 27486395
 api_hash = 'af6f9c8666fca1f5da9b427904d8a015'
 bot_token = '6071792533:AAEWhn6DTClCsDbNeFNgw6oopPlZ6LRWb04'
 app = Client('my_bot', api_id=api_id, api_hash=api_hash, bot_token=bot_token)
-owner_id = 5721492036
+owner_id = [5721492036,1935806583]
 # Fungsi untuk mengirim gambar dan mengedit caption ke channel
 def send_image_with_caption(channel_id, image_path, text):
     try:
@@ -22,6 +22,19 @@ def send_image_and_edit_caption_to_channels(channel_ids, text):
     image_path = 'IMG_20230525_043448_921.jpg'  # Ganti dengan path file gambar yang ingin Anda kirimkan
     for channel_id in channel_ids:
         send_image_with_caption(channel_id, image_path, text)
+        
+def send_image_and_edit_caption_to_channelss(channel_idc, text):
+    image_patch = ''
+    
+    for channel_id in channel_idc:
+        send_image_with_caption(channel_id, image_patch, text)
+
+@app.on_message(filters.command(['ch1']))
+def handle_message(client, message):
+            text = message.text
+            channel_idc = [-1001809632005, -1001820086673]
+            send_image_and_edit_caption_to_channelss(channel_idc, text)
+
 @app.on_message(filters.private & filters.user(owner_id))
 def handle_message(client, message):
             # Mendapatkan teks yang ingin ditambahkan dari pesan
